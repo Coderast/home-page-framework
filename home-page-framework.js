@@ -59,8 +59,14 @@ createLinkInItem = function(link) {
     var a = document.createElement("a");
 
     a.href = link.href;
-    a.text = link.title;
 
+    if (link.imgSrc != undefined) {
+        a.innerHTML = `<img src="${link.imgSrc}"/>${link.title}`;
+        //li.innerHTML = ``;
+        a.className = 'link-with-image';
+    } else {
+        a.text = link.title;
+    }
     li.appendChild(a);
     return li;
 };
